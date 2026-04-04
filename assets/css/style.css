@@ -10,12 +10,12 @@ body {
 header {
   background: linear-gradient(0deg, #5204aa, #23004b);
   color: #fff;
-  padding: 80px 20px;
+  padding: 40px 20px;
   text-align: center;
 }
 header h1 {
   margin: 0 0 24px 0;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
   letter-spacing: -0.5px;
 }
