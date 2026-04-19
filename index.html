@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TableForOne</title>
   <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+  <script src="assets/js/modal.js" defer></script>
+  <script src="assets/js/recommendations.js" defer></script>
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 </head>
 <body>
@@ -18,10 +20,18 @@
   </main>
   <section class="recommendations">
     <h2>Random Recommended Tools & Sites by Liam</h2>
-    <ul>
-      <li><a href="https://cavalry.studio/" target="_blank">Cavalry</a></li>
-      <li><a href="https://godotengine.org/" target="_blank">Godot Engine</a></li>
-    </ul>
+    <ul></ul>
   </section>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p contenteditable id="modal-description"></p>
+      <a id="modal-link" target="_blank">Visit Site</a>
+    </div>
+  </div>
+  <script>
+    //
+  </script>
 </body>
 </html>
