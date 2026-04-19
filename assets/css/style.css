@@ -1,4 +1,24 @@
+/* ------------------------- Chair & Table ------------------------- */
+.adjusted-chair {
+  height: 800px;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  position: relative;
+  left: 400px; 
+}
+
+.adjusted-table {
+  height: 800px;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  position: relative;
+  right: 400px; 
+}
+
 /* ------------------------- Base & Layout ------------------------- */
+
 * {
   box-sizing: border-box;
 }
