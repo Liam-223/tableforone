@@ -1,7 +1,4 @@
-/* ==========================
-   Base & Layout
-   ========================== */
-
+/* ------------------------- Base & Layout ------------------------- */
 * {
   box-sizing: border-box;
 }
@@ -31,9 +28,7 @@ main {
   height: auto;
 }
 
-/* ==========================
-   Header
-   ========================== */
+/* ------------------------- Header ------------------------- */
 
 header {
   background: linear-gradient(0deg, #5204aa, #23004b);
@@ -73,9 +68,7 @@ header a[target="_blank"] {
   animation: glow 2s ease-in-out infinite;
 }
 
-/* ==========================
-   Recommendations Section
-   ========================== */
+/* ------------------------- Recommendations Section ------------------------- */
 
 .recommendations {
   padding: 40px 20px;
@@ -111,9 +104,7 @@ header a[target="_blank"] {
 }
 
 
-/* ==========================
-   Scroll Indicator
-   ========================== */
+/* ------------------------- Scroll Indicator ------------------------- */
 
 .scroll-indicator {
   text-align: center;
@@ -145,9 +136,7 @@ header a[target="_blank"] {
   }
 }
 
-/* ==========================
-   Modal Styles
-   ========================== */
+/* ------------------------- Modal Styles ------------------------- */
 
 .modal {
   display: none;
@@ -279,9 +268,7 @@ header a[target="_blank"] {
   box-shadow: 0 6px 12px rgba(82, 4, 170, 0.4);
 }
 
-/* ==========================
-   Animations
-   ========================== */
+/* ------------------------- Animations ------------------------- */
 
 @keyframes glow {
   0%, 100% {
