@@ -52,7 +52,7 @@ main {
 /* ------------------------- Header ------------------------- */
 
 header {
-  background: linear-gradient(0deg, #5204aa, #23004b);
+  background: #1a1a1a;/*linear-gradient(0deg, #5204aa, #23004b);*/
   color: #fff;
   padding: 24px 18px;
   text-align: center;
