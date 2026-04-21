@@ -19,6 +19,11 @@ const recommendations = [
     desc: 'A site similar to Pinterest but in my opinion just nicer.',
     link: 'https://cosmos.so/'
   },
+   { 
+    name: 'Keep Android Open',
+    desc: 'Something important for Android users who want to maintain control over their devices!!',
+    link: 'https://keepandroidopen.org/'
+  },
 ];
 
 function createRecommendationItem({ name, desc, link }) {

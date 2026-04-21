@@ -1,21 +1,83 @@
-/* ------------------------- Chair & Table ------------------------- */
+/* ------------------------- Header left side ------------------------- */
 
-.wiggle {
-  animation: wiggle 0.4s cubic-bezier(.36,.07,.19,.97) both;
+.header-home-link:hover .header-title {
+  text-decoration: underline;
+  color: #fff;
+  opacity: 1;
 }
 
-@keyframes wiggle {
-  0% { transform: rotate(0deg) scale(1); }
-  10% { transform: rotate(-8deg) scale(1.05); }
-  20% { transform: rotate(8deg) scale(1.05); }
-  30% { transform: rotate(-6deg) scale(1.04); }
-  40% { transform: rotate(6deg) scale(1.04); }
-  50% { transform: rotate(-4deg) scale(1.03); }
-  60% { transform: rotate(4deg) scale(1.03); }
-  70% { transform: rotate(-2deg) scale(1.01); }
-  80% { transform: rotate(2deg) scale(1.01); }
-  90% { transform: rotate(0deg) scale(1); }
- 100% { transform: rotate(0deg) scale(1); }
+.header-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.header-brand {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-left: 16px;
+}
+.header-logo {
+  height: 22px;
+  width: 22px;
+  object-fit: contain;
+  opacity: 0.92;
+}
+.header-title {
+  color: #eee;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  opacity: 0.82;
+  user-select: none;
+}
+
+/* ------------------------- Navigation ------------------------- */
+
+.main-nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+.nav-link {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.04rem;
+  padding: 2px 0;
+  transition: color 0.18s;
+  opacity: 1;
+}
+.nav-link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: #5204aa;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.22s cubic-bezier(.4,0,.2,1);
+}
+.nav-link:hover::after, .nav-link.active::after {
+  transform: scaleX(1);
+}
+.nav-link.crossed {
+  color: #bbb;
+  text-decoration: line-through;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.nav-link.crossed::after {
+  background: #888;
 }
 
 /* ------------------------- Base & Layout ------------------------- */
@@ -52,15 +114,19 @@ main {
 /* ------------------------- Header ------------------------- */
 
 header {
-  background: #1a1a1a;/*linear-gradient(0deg, #5204aa, #23004b);*/
+  background: #1a1a1a; /*linear-gradient(0deg, #5204aa, #23004b);*/
   color: #fff;
-  padding: 24px 18px;
+  padding: 10px 10px 20px 10px;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
 header h1 {
-  margin: 0 0 16px 0;
-  font-size: clamp(1.75rem, 4vw, 2rem);
+  margin: 0 0 8px 0;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
   font-weight: 600;
   letter-spacing: -0.5px;
 }
@@ -92,6 +158,7 @@ header a[target="_blank"] {
 /* ------------------------- Recommendations Section ------------------------- */
 
 .recommendations {
+  margin-top: 65px;
   padding: 40px 20px;
   text-align: center;
   background: #1a1a1a;
@@ -132,7 +199,7 @@ header a[target="_blank"] {
   padding: 20px 0;
   color: #e0e0e0;
   position: absolute;
-  bottom: 0px;
+  bottom: -60px;
   left: 50%;
   transform: translateX(-50%);
   animation: glow 5s ease-in-out infinite;
@@ -318,4 +385,25 @@ header a[target="_blank"] {
     opacity: .4;
     transform: translateY(0);
   }
+}
+
+
+/* ------------------------- Chair & Table ------------------------- */
+
+.wiggle {
+  animation: wiggle 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg) scale(1); }
+  10% { transform: rotate(-8deg) scale(1.05); }
+  20% { transform: rotate(8deg) scale(1.05); }
+  30% { transform: rotate(-6deg) scale(1.04); }
+  40% { transform: rotate(6deg) scale(1.04); }
+  50% { transform: rotate(-4deg) scale(1.03); }
+  60% { transform: rotate(4deg) scale(1.03); }
+  70% { transform: rotate(-2deg) scale(1.01); }
+  80% { transform: rotate(2deg) scale(1.01); }
+  90% { transform: rotate(0deg) scale(1); }
+ 100% { transform: rotate(0deg) scale(1); }
 }
