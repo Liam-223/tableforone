@@ -19,7 +19,12 @@ const recommendations = [
     desc: 'A site similar to Pinterest but in my opinion just nicer.',
     link: 'https://cosmos.so/'
   },
-   { 
+  { 
+    name: 'Synfig Studio',
+    desc: 'A free and open-source 2D animation software. It is soooo good for a free program.',
+    link: 'https://www.synfig.org/'
+  },
+  { 
     name: 'Keep Android Open',
     desc: 'Something important for Android users who want to maintain control over their devices!!',
     link: 'https://keepandroidopen.org/'
