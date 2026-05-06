@@ -6,7 +6,7 @@ const recommendations = [
   },
   {
     name: 'Proton VPN',
-    desc: 'A nice VPN service that can also be free if you dont wanna pay. Id also recommend their other services, I personally use them over providers like Google because they have much better privacy policies :)',
+    desc: 'A nice VPN service that can also be free if you dont wanna pay. Id also recommend their other services, I personally use them over providers like Google because they have much better privacy policies (You can even use MY LINK for a 14 Days free trial of their paid plan https://pr.tn/ref/HN0M66BR):',
     link: 'https://protonvpn.com/'
   },
   {
