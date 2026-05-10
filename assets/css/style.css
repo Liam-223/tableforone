@@ -172,13 +172,13 @@ header a:hover {
   opacity: 0.8;
 }
 
-header a[target="_blank"] {
+/*header a[target="_blank"] {
   font-weight: 600;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 2px;
   cursor: pointer;
   animation: glow 2s ease-in-out infinite;
-}
+}*/
 
 /* ------------------------- Recommendations Section ------------------------- */
 
