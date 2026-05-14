@@ -9,49 +9,120 @@
   <script src="assets/js/recommendations.js" defer></script>
   <script src="assets/js/wiggle.js" defer></script>
   <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <style>
+    .page { display: none; }
+    .page.active { display: block; }
+  </style>
 </head>
 <body>
   <header>
     <div class="header-bar">
       <div class="header-brand">
-        <a href="#" class="header-home-link" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
+        <a href="#home" class="header-home-link" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
           <img src="assets/images/logo.png" alt="logo" class="header-logo">
           <span class="header-title">tablefor.one</span>
         </a>
       </div>
       <nav class="main-nav">
-        <a href="#" class="nav-link active">Home</a>
-        <a href="games.html" class="nav-link">Games</a>
+        <a href="#home" class="nav-link" data-page="home">Home</a>
+        <a href="#games" class="nav-link" data-page="games">Games</a>
         <a href="https://tableforone.bigcartel.com" class="nav-link" target="_blank" rel="noopener">Shop</a>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="#about" class="nav-link" data-page="about">About</a>
       </nav>
     </div>
   </header>
-  <main>
-    <div class="centered-image" style="display: flex; justify-content: center; align-items: center; gap: 0px;">
-      <img src="assets/images/chair.png" alt="Chair" style="height: 200px; margin-right: -25px; opacity: 0.6;">
-      <img src="assets/images/table.png" alt="Table" style="height: 200px; margin-left: -25px; opacity: 0.6;">
-    </div>
-    <div class="scroll-indicator"></div>
-  </main>
-  <section class="recommendations">
-    <h2>Random Recommended Tools & Sites by Liam</h2>
-    <ul></ul>
-  </section>
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h3 id="modal-title"></h3>
-      <p contenteditable id="modal-description"></p>
-      <a id="modal-link" target="_blank">Visit Site</a>
+
+  <!-- Home Page -->
+  <div id="page-home" class="page">
+    <main>
+      <div class="centered-image" style="display: flex; justify-content: center; align-items: center; gap: 0px;">
+        <img src="assets/images/chair.png" alt="Chair" style="height: 200px; margin-right: -25px; opacity: 0.6;">
+        <img src="assets/images/table.png" alt="Table" style="height: 200px; margin-left: -25px; opacity: 0.6;">
+      </div>
+      <div class="scroll-indicator"></div>
+    </main>
+    <section class="recommendations">
+      <h2>Random Recommended Tools & Sites by Liam</h2>
+      <ul></ul>
+    </section>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modal-title"></h3>
+        <p contenteditable id="modal-description"></p>
+        <a id="modal-link" target="_blank">Visit Site</a>
+      </div>
     </div>
   </div>
+
+  <!-- Games Page -->
+  <div id="page-games" class="page">
+    <main style="--target-opacity: 1;">
+      <section class="games-section">
+        <h2>My Games</h2>
+        <div class="game-list">
+          <div class="game-card">
+            <img src="assets/images/Climbbound/banner.webp" alt="Idle Mountain Climber banner" style="width:100%;max-width:552px;border-radius:12px;box-shadow:0 4px 16px #0007;margin-bottom:18px;">
+            <div class="game-info">
+              <h3>Climbbound - Idle Mountain Climber</h3>
+              <a href="https://liam-223.itch.io/climbbound" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;padding:10px 22px;background:#5204aa;color:#fff;border-radius:8px;font-weight:600;text-decoration:none;transition:background 0.2s;">Play on itch.io</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- About Page -->
+  <div id="page-about" class="page">
+    <main style="--target-opacity: 1;">
+      <section class="about">
+        <h2>
+          <a href="https://linktr.ee/liam_223" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline dotted;cursor:pointer;">
+            About Me
+          </a>
+        </h2>
+        <p style="opacity:1;">Hi, I'm Liam. I build games and enjoy coding, mostly as a solo developer.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer style="width:100vw;text-align:center;padding:18px 0 12px 0;font-size:0.8rem;color:#aaa;background:none;letter-spacing:0.01em;">
+    &copy; 2026 Liam. All rights reserved.
+  </footer>
+
   <script>
-    //later?
+    const pages = {
+      home:  { el: document.getElementById('page-home'),  title: 'TableForOne' },
+      games: { el: document.getElementById('page-games'), title: 'Games - TableForOne' },
+      about: { el: document.getElementById('page-about'), title: 'About - TableForOne' }
+    };
+
+    function showPage(name) {
+      const pageName = pages[name] ? name : 'home';
+
+      Object.values(pages).forEach(p => p.el.classList.remove('active'));
+
+      document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+        link.classList.toggle('active', link.dataset.page === pageName);
+      });
+
+      const page = pages[pageName];
+      page.el.classList.add('active');
+      document.title = page.title;
+
+      const mainEl = page.el.querySelector('main');
+      if (mainEl) {
+        mainEl.style.animation = 'none';
+        mainEl.offsetHeight;
+        mainEl.style.animation = '';
+      }
+
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener('hashchange', () => showPage(location.hash.slice(1)));
+    document.addEventListener('DOMContentLoaded', () => showPage(location.hash.slice(1) || 'home'));
   </script>
 </body>
 </html>
-</body>
-<footer style="width:100vw;text-align:center;padding:18px 0 12px 0;font-size:0.8rem;color:#aaa;background:none;letter-spacing:0.01em;">
-  &copy; 2026 Liam. All rights reserved.
-</footer>
