@@ -93,9 +93,9 @@
 
   <script>
     const pages = {
-      home:  { el: document.getElementById('page-home'),  title: 'TableForOne' },
-      games: { el: document.getElementById('page-games'), title: 'Games - TableForOne' },
-      about: { el: document.getElementById('page-about'), title: 'About - TableForOne' }
+      home:  { el: document.getElementById('page-home') },
+      games: { el: document.getElementById('page-games') },
+      about: { el: document.getElementById('page-about') }
     };
 
     function showPage(name) {
@@ -109,7 +109,7 @@
 
       const page = pages[pageName];
       page.el.classList.add('active');
-      document.title = page.title;
+      document.title = 'TableForOne';
 
       const mainEl = page.el.querySelector('main');
       if (mainEl) {
