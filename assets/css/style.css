@@ -42,10 +42,8 @@
 .theme-toggle:focus-visible {
   background: transparent;
   outline: none;
-  transform: translateY(-50%);
 }
 .theme-toggle:active {
-  transform: translateY(-50%);
 }
 
 @media (max-width: 600px) {
