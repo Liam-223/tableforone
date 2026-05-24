@@ -50,31 +50,33 @@
 
 @media (max-width: 600px) {
   .header-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     height: auto;
-    padding: 10px 0 0 0;
+    padding: 10px 16px 8px;
     position: static;
   }
   .header-brand {
     position: static;
     transform: none;
     padding-left: 0;
-    margin-bottom: 8px;
+    margin-bottom: 0;
   }
   .theme-toggle {
     position: static;
     transform: none;
-    margin-left: auto;
-    margin-top: 10px;
+    margin: 0;
+    order: 1;
   }
   .main-nav {
-    margin-top: 0;
+    margin-top: 10px;
     width: 100%;
     justify-content: flex-start;
     gap: 14px;
     padding-left: 0;
+    order: 2;
   }
 }
 .header-logo {
