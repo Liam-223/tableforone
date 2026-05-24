@@ -9,7 +9,8 @@ function setTheme(theme) {
 
 function loadTheme() {
   const storedTheme = localStorage.getItem('site-theme');
-  const theme = storedTheme || 'dark';
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
   setTheme(theme);
 }
 
