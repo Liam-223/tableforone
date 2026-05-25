@@ -259,6 +259,25 @@ body {
   margin-bottom: 18px;
 }
 
+.game-card a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.game-card a:focus-visible,
+.game-card a:hover {
+  outline: none;
+}
+
+.game-card a:hover .game-banner,
+.game-card a:focus-visible .game-banner {
+  transform: translateY(-1px);
+}
+
+.game-card .game-banner {
+  transition: transform 0.18s ease;
+}
+
 .support-bubble-wrap {
   position: fixed;
   left: 18px;
