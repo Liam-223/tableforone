@@ -24,4 +24,5 @@ if (themeToggleButton) {
   themeToggleButton.addEventListener('click', toggleTheme);
 }
 
+loadTheme();
 window.addEventListener('DOMContentLoaded', loadTheme);
