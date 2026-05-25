@@ -1,3 +1,6 @@
+// SCRIPT BY - LIAM
+//
+
 document.addEventListener('DOMContentLoaded', function () {
   function addWiggleOnClick(selector) {
     document.querySelectorAll(selector).forEach(function (el) {

@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- SCRIPT BY - LIAM -->
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,60 +9,17 @@
   <link rel="stylesheet" href="scripts/css/style.css" type="text/css">
   <script src="scripts/js/modal.js" defer></script>
   <script src="scripts/js/recommendations.js" defer></script>
+  <script src="scripts/js/creations/games.js" defer></script>
+  <script src="scripts/js/creations/albums.js" defer></script>
   <script src="scripts/js/wiggle.js" defer></script>
   <script src="scripts/js/theme-toggle.js" defer></script>
   <link rel="icon" type="image/webp" href="assets/images/logo.webp">
-  <style>
-    .page { display: none; }
-    .page.active { display: block; }
-    .tab-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-    .games-section h2 {
-      font-size: 2rem;
-      margin-bottom: 0.75rem;
-    }
-    .tab-button {
-      border: 1px solid var(--muted);
-      border-radius: 999px;
-      background: transparent;
-      color: inherit;
-      padding: 0.75rem 1rem;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-    .tab-button.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: transparent;
-    }
-    .tab-panels {
-      min-height: 340px;
-    }
-    #page-creations main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: calc(100vh - 120px);
-      padding: 40px 20px 60px;
-    }
-    #page-creations .games-section {
-      width: 100%;
-      max-width: 900px;
-    }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-  </style>
 </head>
 <body>
   <header>
     <div class="header-bar">
       <div class="header-brand">
-        <a href="#" class="header-home-link nav-link" data-page="home" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
+        <a href="#" class="header-home-link nav-link" data-page="home">
           <img src="assets/images/logo.webp" alt="logo" class="header-logo">
           <span class="header-title">tablefor.one</span>
         </a>
@@ -78,9 +37,9 @@
   <!-- Home Page -->
   <div id="page-home" class="page">
     <main>
-      <div class="centered-image" style="display: flex; justify-content: center; align-items: center; gap: 0px;">
-        <img src="assets/images/chair.webp" alt="Chair" style="height: 200px; margin-right: -25px; opacity: 0.6;">
-        <img src="assets/images/table.webp" alt="Table" style="height: 200px; margin-left: -25px; opacity: 0.6;">
+      <div class="home-hero">
+        <img src="assets/images/chair.webp" alt="Chair" class="chair-img">
+        <img src="assets/images/table.webp" alt="Table" class="table-img">
       </div>
       <div class="scroll-indicator"></div>
     </main>
@@ -100,7 +59,7 @@
 
   <!-- Creations Page -->
   <div id="page-creations" class="page">
-    <main style="--target-opacity: 1;">
+    <main class="full-opacity">
       <section class="games-section">
         <h2>Creations</h2>
         <div class="tab-list" role="tablist" aria-label="Creations categories">
@@ -111,24 +70,16 @@
         </div>
         <div class="tab-panels">
           <section id="tab-games" class="tab-panel active" role="tabpanel">
-            <div class="game-list">
-              <div class="game-card">
-                <img src="assets/games/Climbbound/banner.webp" alt="Idle Mountain Climber banner" style="width:100%;max-width:552px;border-radius:12px;box-shadow:0 4px 16px #0007;margin-bottom:18px;">
-                <div class="game-info">
-                  <h3>Climbbound - Idle Mountain Climber</h3>
-                  <a href="https://liam-223.itch.io/climbbound" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;padding:10px 22px;background:#5204aa;color:#fff;border-radius:8px;font-weight:600;text-decoration:none;transition:background 0.2s;">Play on itch.io</a>
-                </div>
-              </div>
-            </div>
+            <div id="game-root" class="game-list"></div>
           </section>
           <section id="tab-music" class="tab-panel" role="tabpanel">
-            <p style="opacity:1;">-Nothing to see here yet!-</p>
+            <div id="music-root" class="music-gallery"></div>
           </section>
           <section id="tab-art" class="tab-panel" role="tabpanel">
-            <p style="opacity:1;">-Nothing to see here yet!-</p>
+            <p>-Nothing to see here yet!-</p>
           </section>
           <section id="tab-other" class="tab-panel" role="tabpanel">
-            <p style="opacity:1;">-Nothing to see here yet!-</p>
+            <p>-Nothing to see here yet!-</p>
           </section>
         </div>
       </section>
@@ -137,14 +88,14 @@
 
   <!-- About Page -->
   <div id="page-about" class="page">
-    <main style="--target-opacity: 1;">
+    <main class="full-opacity">
       <section class="about">
         <h2>
-          <a href="https://linktr.ee/liam_223" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline dotted;cursor:pointer;">
+          <a href="https://linktr.ee/liam_223" target="_blank" rel="noopener" class="about-link">
             About Me
           </a>
         </h2>
-        <p style="opacity:1;">Hi, I’m Liam. I do all of this solo. My focus is on developing games, but to be fair,
+        <p>Hi, I’m Liam. I do all of this solo. My focus is on developing games, but to be fair,
         <br>I also enjoy working on literally anything else. 
         <br>
         <br>This site is just a place to share my work.</p>
@@ -152,7 +103,7 @@
     </main>
   </div>
 
-  <footer style="width:100vw;text-align:center;padding:18px 0 12px 0;font-size:0.8rem;color:var(--muted);background:none;letter-spacing:0.01em;">
+  <footer class="site-footer">
     &copy; 2026 Liam. All rights reserved.
   </footer>
 

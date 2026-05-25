@@ -1,3 +1,6 @@
+// SCRIPT BY - LIAM
+//
+
 const themeToggleButton = document.getElementById('theme-toggle');
 const root = document.documentElement;
 

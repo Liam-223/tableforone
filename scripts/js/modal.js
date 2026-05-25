@@ -1,3 +1,6 @@
+// SCRIPT BY - LIAM
+//
+
 function showModal(title, desc, link) {
   document.getElementById('modal-title').textContent = title;
   const descElem = document.getElementById('modal-description');
