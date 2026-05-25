@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TableForOne</title>
-  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-  <script src="assets/js/modal.js" defer></script>
-  <script src="assets/js/recommendations.js" defer></script>
-  <script src="assets/js/wiggle.js" defer></script>
-  <script src="assets/js/theme-toggle.js" defer></script>
+  <link rel="stylesheet" href="scripts/css/style.css" type="text/css">
+  <script src="scripts/js/modal.js" defer></script>
+  <script src="scripts/js/recommendations.js" defer></script>
+  <script src="scripts/js/wiggle.js" defer></script>
+  <script src="scripts/js/theme-toggle.js" defer></script>
   <link rel="icon" type="image/webp" href="assets/images/logo.webp">
   <style>
     .page { display: none; }
@@ -60,16 +60,16 @@
   <header>
     <div class="header-bar">
       <div class="header-brand">
-        <a href="#home" class="header-home-link" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
+        <a href="#" class="header-home-link nav-link" data-page="home" style="display:flex;align-items:center;gap:7px;text-decoration:none;">
           <img src="assets/images/logo.webp" alt="logo" class="header-logo">
           <span class="header-title">tablefor.one</span>
         </a>
       </div>
       <nav class="main-nav">
-        <a href="#home" class="nav-link" data-page="home">Home</a>
-        <a href="#creations" class="nav-link" data-page="creations">Creations</a>
+        <a href="#" class="nav-link" data-page="home">Home</a>
+        <a href="#" class="nav-link" data-page="creations">Creations</a>
         <a href="https://tableforone.bigcartel.com" class="nav-link" target="_blank" rel="noopener">Shop</a>
-        <a href="#about" class="nav-link" data-page="about">About</a>
+        <a href="#" class="nav-link" data-page="about">About</a>
       </nav>
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">🌙</button>
     </div>
@@ -113,7 +113,7 @@
           <section id="tab-games" class="tab-panel active" role="tabpanel">
             <div class="game-list">
               <div class="game-card">
-                <img src="assets/images/Climbbound/banner.webp" alt="Idle Mountain Climber banner" style="width:100%;max-width:552px;border-radius:12px;box-shadow:0 4px 16px #0007;margin-bottom:18px;">
+                <img src="assets/games/Climbbound/banner.webp" alt="Idle Mountain Climber banner" style="width:100%;max-width:552px;border-radius:12px;box-shadow:0 4px 16px #0007;margin-bottom:18px;">
                 <div class="game-info">
                   <h3>Climbbound - Idle Mountain Climber</h3>
                   <a href="https://liam-223.itch.io/climbbound" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;padding:10px 22px;background:#5204aa;color:#fff;border-radius:8px;font-weight:600;text-decoration:none;transition:background 0.2s;">Play on itch.io</a>
@@ -164,8 +164,32 @@
       about:     { el: document.getElementById('page-about') }
     };
 
+    const LAST_PAGE_KEY = 'tablefor.one.lastPage';
+    const LAST_TAB_KEY = 'tablefor.one.lastTab';
+    const VALID_TABS = ['games', 'music', 'art', 'other'];
+
+    function getSavedPage() {
+      const saved = localStorage.getItem(LAST_PAGE_KEY);
+      return pages[saved] ? saved : 'home';
+    }
+
+    function getInitialPage() {
+      const params = new URLSearchParams(location.search);
+      const pageParam = params.get('page');
+      const hashPage = location.hash.slice(1);
+      if (pages[hashPage]) return hashPage;
+      if (pages[pageParam]) return pageParam;
+      return getSavedPage();
+    }
+
+    function getSavedTab() {
+      const saved = localStorage.getItem(LAST_TAB_KEY);
+      return VALID_TABS.includes(saved) ? saved : 'games';
+    }
+
     function showPage(name) {
       const pageName = pages[name] ? name : 'home';
+      localStorage.setItem(LAST_PAGE_KEY, pageName);
 
       Object.values(pages).forEach(p => p.el.classList.remove('active'));
 
@@ -185,14 +209,18 @@
       }
 
       if (pageName === 'creations' || pageName === 'games') {
-        const activeTab = page.el.querySelector('.tab-button.active')?.dataset.tab || 'games';
-        activateTab(activeTab);
+        activateTab(getSavedTab());
       }
 
       window.scrollTo(0, 0);
     }
 
     function activateTab(tabId) {
+      if (!VALID_TABS.includes(tabId)) {
+        tabId = 'games';
+      }
+      localStorage.setItem(LAST_TAB_KEY, tabId);
+
       document.querySelectorAll('.tab-button').forEach(button => {
         const isActive = button.dataset.tab === tabId;
         button.classList.toggle('active', isActive);
@@ -203,14 +231,27 @@
       });
     }
 
+    document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        showPage(link.dataset.page);
+        history.replaceState(null, '', location.pathname);
+      });
+    });
+
     document.addEventListener('click', event => {
       const button = event.target.closest('.tab-button');
       if (!button) return;
       activateTab(button.dataset.tab);
     });
 
-    window.addEventListener('hashchange', () => showPage(location.hash.slice(1)));
-    document.addEventListener('DOMContentLoaded', () => showPage(location.hash.slice(1) || 'home'));
+    document.addEventListener('DOMContentLoaded', () => {
+      const page = getInitialPage();
+      showPage(page);
+      if (location.hash || location.search) {
+        history.replaceState(null, '', location.pathname);
+      }
+    });
   </script>
 </body>
 </html>

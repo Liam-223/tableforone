@@ -111,6 +111,12 @@
   transition: color 0.18s;
   opacity: 1;
 }
+.header-home-link.nav-link::after {
+  display: none;
+}
+.header-home-link:hover .header-title {
+  text-decoration: none;
+}
 .nav-link::after {
   content: "";
   display: block;
@@ -247,6 +253,12 @@ header a:hover {
   margin-bottom: 20px;
   color: var(--text);
   padding: 0;
+}
+
+.recommendations ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .recommendations li {
