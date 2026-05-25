@@ -107,6 +107,13 @@
     &copy; 2026 Liam. All rights reserved.
   </footer>
 
+  <div class="support-bubble-wrap" id="supportBubbleWrapper">
+    <a href="https://buymeacoffee.com/liam223" target="_blank" rel="noopener noreferrer" class="support-bubble" aria-label="Buy me a coffee" title="Buy me a coffee">
+      <img src="assets/buy-me-coffee-icon.webp" alt="Buy me a coffee" class="support-bubble-icon">
+    </a>
+    <button type="button" class="support-bubble-close" id="supportBubbleClose" aria-label="Dismiss support button">×</button>
+  </div>
+
   <script>
     const pages = {
       home:      { el: document.getElementById('page-home') },
@@ -196,12 +203,32 @@
       activateTab(button.dataset.tab);
     });
 
+    const SUPPORT_BUBBLE_KEY = 'tablefor.one.supportBubbleDismissed';
+
+    function initSupportBubble() {
+      const wrapper = document.getElementById('supportBubbleWrapper');
+      if (!wrapper) return;
+      if (localStorage.getItem(SUPPORT_BUBBLE_KEY) === 'true') {
+        wrapper.style.display = 'none';
+        return;
+      }
+
+      const closeButton = document.getElementById('supportBubbleClose');
+      if (!closeButton) return;
+      closeButton.addEventListener('click', event => {
+        event.stopPropagation();
+        wrapper.style.display = 'none';
+        localStorage.setItem(SUPPORT_BUBBLE_KEY, 'true');
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       const page = getInitialPage();
       showPage(page);
       if (location.hash || location.search) {
         history.replaceState(null, '', location.pathname);
       }
+      initSupportBubble();
     });
   </script>
 </body>
