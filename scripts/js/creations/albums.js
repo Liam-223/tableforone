@@ -4,7 +4,7 @@
 const albums = [
   {
     title: 'Viscera',
-    description: 'A short experimental album. (still missing 2 tracks, some tracks are also not final)',
+    description: 'A short experimental album.',
     folder: 'Viscera',
     cover: 'COVER.jpg',
     tracks: [
@@ -13,17 +13,21 @@ const albums = [
       { title: '#3 Scraping Teeth' },
       { title: '#4 Heavy Breath' },
       { title: '#5 Flowing Blood' },
-      { title: '#6 Knotted Intestines' }
+      { title: '#6 Knotted Intestines' },
+      { title: '#7 Itch Cycle' },
+      { title: '#8 Soft Collapse' },
     ]
   },
   {
     title: 'A Tales Tale',
-    description: 'A short album. (also still missing 2 tracks, some tracks are also not final).',
+    description: 'A short album.',
     folder: 'A Tales Tale',
     cover: 'COVER.jpg',
     tracks: [
       { title: '#1 A Bell\'s Ringing' },
-      { title: '#2 Day in the Circus' }
+      { title: '#2 Day in the Circus' },
+      { title: '#3 The Curious Poet' },
+      { title: '#4 The Clockmaker\'s Dream' },
     ]
   }
 ];
