@@ -222,7 +222,14 @@
       });
     }
 
+    function applyPrideTitle() {
+      if (new Date().getMonth() === 5) {
+        document.querySelector('.header-title')?.classList.add('pride-month');
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      applyPrideTitle();
       const page = getInitialPage();
       showPage(page);
       if (location.hash || location.search) {
