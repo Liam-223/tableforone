@@ -122,6 +122,19 @@
   }
 }
 
+#page-about .about {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  padding: 0 1.2rem;
+  text-align: center;
+}
+
+#page-about .about p {
+  margin: 1.2rem auto 0;
+  max-width: 760px;
+  line-height: 1.75;
+}
+
 /* ------------------------- Navigation ------------------------- */
 
 .main-nav {
