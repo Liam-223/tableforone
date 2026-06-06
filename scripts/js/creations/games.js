@@ -13,6 +13,9 @@ const games = [
 function createGameCard(game) {
   const card = document.createElement('div');
   card.className = 'game-card';
+  if (game.title.toLowerCase().includes('climbbound')) {
+    card.classList.add('climbbound-card');
+  }
 
   const link = document.createElement('a');
   link.href = game.link;

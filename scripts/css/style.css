@@ -304,6 +304,17 @@ body {
   transition: transform 0.18s ease;
 }
 
+.climbbound-card .game-banner {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.climbbound-card a:hover .game-banner,
+.climbbound-card a:focus-visible .game-banner {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 5px 14px rgba(46, 55, 139, 0.24);
+  filter: drop-shadow(0 12px 24px rgba(46, 79, 139, 0.15));
+}
+
 .support-bubble-wrap {
   position: fixed;
   left: 18px;
