@@ -96,7 +96,7 @@
   user-select: none;
 }
 
-.header-title.pride-month {
+.about-link.pride-month {
   color: transparent;
   background: linear-gradient(90deg, #ff5a79, #ffb74d, #fff176, #4dbd7d, #6c9cff, #b068ff);
   background-size: 300% 100%;
@@ -106,7 +106,7 @@
   opacity: 0.95;
 }
 
-.header-home-link:hover .header-title.pride-month {
+.about-link.pride-month:hover {
   color: transparent;
 }
 
