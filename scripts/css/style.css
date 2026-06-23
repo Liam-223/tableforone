@@ -344,12 +344,15 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: none;
   border-radius: 50%;
   background: rgba(255, 221, 0, 0.18);
   color: #1d1d1d;
   text-decoration: none;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(8px);
+  cursor: pointer;
+  padding: 0;
   transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
 }
 
@@ -395,6 +398,10 @@ body {
 .support-bubble-close:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.9);
   outline-offset: 2px;
+}
+
+#bmc-wbtn {
+  display: none !important;
 }
 
 .about-link {

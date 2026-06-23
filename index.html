@@ -119,11 +119,13 @@
   </footer>
 
   <div class="support-bubble-wrap" id="supportBubbleWrapper">
-    <a href="https://buymeacoffee.com/liam223" target="_blank" rel="noopener noreferrer" class="support-bubble" aria-label="Buy me a coffee" title="Buy me a coffee">
+    <button type="button" class="support-bubble" id="supportBubbleButton" aria-label="Open donation widget" title="Support me">
       <img src="assets/buy-me-coffee-icon.webp" alt="Buy me a coffee" class="support-bubble-icon">
-    </a>
+    </button>
     <button type="button" class="support-bubble-close" id="supportBubbleClose" aria-label="Dismiss support button">×</button>
   </div>
+
+  <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="liam223" data-description="Support me on Buy me a coffee!" data-message="" data-color="#BD5FFF" data-position="left" data-x_margin="18" data-y_margin="18"></script>
 
   <script>
     const pages = {
@@ -217,6 +219,27 @@
 
     const SUPPORT_BUBBLE_KEY = 'tablefor.one.supportBubbleDismissed';
 
+    function openSupportWidget() {
+      const widgetButton = document.getElementById('bmc-wbtn');
+      if (widgetButton && typeof widgetButton.click === 'function') {
+        widgetButton.click();
+        return;
+      }
+
+      const trigger = document.querySelector('.bmc-btn, .bmc-button, .bmc-widget-button');
+      if (trigger && typeof trigger.click === 'function') {
+        trigger.click();
+        return;
+      }
+
+      window.setTimeout(() => {
+        const retryButton = document.getElementById('bmc-wbtn');
+        if (retryButton && typeof retryButton.click === 'function') {
+          retryButton.click();
+        }
+      }, 100);
+    }
+
     function initSupportBubble() {
       const wrapper = document.getElementById('supportBubbleWrapper');
       if (!wrapper) return;
@@ -225,7 +248,15 @@
         return;
       }
 
+      const bubbleButton = document.getElementById('supportBubbleButton');
       const closeButton = document.getElementById('supportBubbleClose');
+      if (bubbleButton) {
+        bubbleButton.addEventListener('click', event => {
+          event.preventDefault();
+          openSupportWidget();
+        });
+      }
+
       if (!closeButton) return;
       closeButton.addEventListener('click', event => {
         event.stopPropagation();
