@@ -27,7 +27,7 @@
       <nav class="main-nav">
         <a href="#" class="nav-link" data-page="home">Home</a>
         <a href="#" class="nav-link" data-page="creations">Creations</a>
-        <a href="https://tableforone.bigcartel.com" class="nav-link" target="_blank" rel="noopener">Shop</a>
+        <a href="#" class="nav-link" data-page="shop">Shop</a>
         <a href="#" class="nav-link" data-page="about">About</a>
       </nav>
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">🌙</button>
@@ -86,6 +86,16 @@
     </main>
   </div>
 
+  <!-- Shop Page -->
+  <div id="page-shop" class="page">
+    <main class="full-opacity">
+      <section class="about">
+        <h2>Shop</h2>
+        <p>Sorry, I don't really have one yet, but for now you can check out my empty <a href="https://tableforone.bigcartel.com" target="_blank" rel="noopener">big cartel shop</a>.</p>
+      </section>
+    </main>
+  </div>
+
   <!-- About Page -->
   <div id="page-about" class="page">
     <main class="full-opacity">
@@ -120,6 +130,7 @@
       home:      { el: document.getElementById('page-home') },
       creations: { el: document.getElementById('page-creations') },
       games:     { el: document.getElementById('page-creations') },
+      shop:      { el: document.getElementById('page-shop') },
       about:     { el: document.getElementById('page-about') }
     };
 
