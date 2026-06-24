@@ -7,12 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TableForOne</title>
   <link rel="stylesheet" href="scripts/css/style.css" type="text/css">
+  <link rel="stylesheet" href="scripts/css/support-widget.css" type="text/css">
   <script src="scripts/js/modal.js" defer></script>
   <script src="scripts/js/recommendations.js" defer></script>
   <script src="scripts/js/creations/games.js" defer></script>
   <script src="scripts/js/creations/albums.js" defer></script>
   <script src="scripts/js/wiggle.js" defer></script>
   <script src="scripts/js/theme-toggle.js" defer></script>
+  <script src="scripts/js/support-widget.js" defer></script>
   <link rel="icon" type="image/webp" href="assets/images/logo.webp">
 </head>
 <body>
@@ -118,6 +120,7 @@
     <p>Any Questions? E-Mail: <a href="mailto:support@tablefor.one">support@tablefor.one</a></p>
   </footer>
 
+  <!-- Buy Me a Coffee Widget (portable block) -->
   <div class="support-bubble-wrap" id="supportBubbleWrapper">
     <button type="button" class="support-bubble" id="supportBubbleButton" aria-label="Open donation widget" title="Support me">
       <img src="assets/buy-me-coffee-icon.webp" alt="Buy me a coffee" class="support-bubble-icon">
@@ -217,54 +220,6 @@
       activateTab(button.dataset.tab);
     });
 
-    const SUPPORT_BUBBLE_KEY = 'tablefor.one.supportBubbleDismissed';
-
-    function openSupportWidget() {
-      const widgetButton = document.getElementById('bmc-wbtn');
-      if (widgetButton && typeof widgetButton.click === 'function') {
-        widgetButton.click();
-        return;
-      }
-
-      const trigger = document.querySelector('.bmc-btn, .bmc-button, .bmc-widget-button');
-      if (trigger && typeof trigger.click === 'function') {
-        trigger.click();
-        return;
-      }
-
-      window.setTimeout(() => {
-        const retryButton = document.getElementById('bmc-wbtn');
-        if (retryButton && typeof retryButton.click === 'function') {
-          retryButton.click();
-        }
-      }, 100);
-    }
-
-    function initSupportBubble() {
-      const wrapper = document.getElementById('supportBubbleWrapper');
-      if (!wrapper) return;
-      if (localStorage.getItem(SUPPORT_BUBBLE_KEY) === 'true') {
-        wrapper.style.display = 'none';
-        return;
-      }
-
-      const bubbleButton = document.getElementById('supportBubbleButton');
-      const closeButton = document.getElementById('supportBubbleClose');
-      if (bubbleButton) {
-        bubbleButton.addEventListener('click', event => {
-          event.preventDefault();
-          openSupportWidget();
-        });
-      }
-
-      if (!closeButton) return;
-      closeButton.addEventListener('click', event => {
-        event.stopPropagation();
-        wrapper.style.display = 'none';
-        localStorage.setItem(SUPPORT_BUBBLE_KEY, 'true');
-      });
-    }
-
     function applyPrideTitle() {
       if (new Date().getMonth() === 5) {
         document.querySelector('.about-link')?.classList.add('pride-month');
@@ -278,7 +233,6 @@
       if (location.hash || location.search) {
         history.replaceState(null, '', location.pathname);
       }
-      initSupportBubble();
     });
   </script>
 </body>
