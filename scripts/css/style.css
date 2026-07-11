@@ -420,7 +420,7 @@ header a:hover {
   margin-top: 65px;
   padding: 40px 20px;
   text-align: center;
-  background: var(--surface);
+  background: transparent;
   color: var(--text);
   transition: background-color 0.35s ease, color 0.35s ease;
 }
