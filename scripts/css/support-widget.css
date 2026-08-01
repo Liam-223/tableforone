@@ -23,7 +23,18 @@
   backdrop-filter: blur(8px);
   cursor: pointer;
   padding: 0;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease, background-color 0.35s ease, color 0.35s ease;
+}
+
+:root[data-theme="dark"] .support-bubble {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f5f5f5;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme="dark"] .support-bubble:hover,
+:root[data-theme="dark"] .support-bubble:focus-visible {
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
 }
 
 .support-bubble:hover,
