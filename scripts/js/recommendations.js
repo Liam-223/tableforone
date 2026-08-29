@@ -47,7 +47,7 @@ function createRecommendationItem({ name, desc, link }) {
 }
 
 function renderRecommendations() {
-  const ul = document.querySelector('.recommendations ul');
+  const ul = document.querySelector('.recommendations-panel ul');
   if (!ul) return;
   ul.innerHTML = '';
   recommendations.forEach(rec => {
@@ -55,4 +55,83 @@ function renderRecommendations() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', renderRecommendations);
+function markHomeImagesReady() {
+  const homePage = document.getElementById('page-home');
+  if (!homePage) return;
+
+  const homeImages = homePage.querySelectorAll('img');
+  if (!homeImages.length) {
+    homePage.classList.add('home-ready');
+    return;
+  }
+
+  const allLoaded = Array.from(homeImages).every(img => img.complete && img.naturalWidth > 0);
+  if (allLoaded) {
+    homePage.classList.add('home-ready');
+  }
+}
+
+function openRecommendations() {
+  const panel = document.getElementById('recommendations-panel');
+  const trigger = document.querySelector('.recommendations-trigger');
+  if (!panel || !trigger) return;
+  panel.classList.add('open');
+  panel.setAttribute('aria-hidden', 'false');
+  trigger.setAttribute('aria-expanded', 'true');
+  trigger.classList.add('is-open');
+}
+
+function closeRecommendations() {
+  const panel = document.getElementById('recommendations-panel');
+  const trigger = document.querySelector('.recommendations-trigger');
+  if (!panel || !trigger) return;
+  panel.classList.remove('open');
+  panel.setAttribute('aria-hidden', 'true');
+  trigger.setAttribute('aria-expanded', 'false');
+  trigger.classList.remove('is-open');
+}
+
+function toggleRecommendations() {
+  const panel = document.getElementById('recommendations-panel');
+  if (!panel) return;
+  const isOpen = panel.classList.contains('open');
+  if (isOpen) {
+    closeRecommendations();
+  } else {
+    openRecommendations();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderRecommendations();
+
+  const homePage = document.getElementById('page-home');
+  const homeImages = homePage ? homePage.querySelectorAll('img') : [];
+
+  const checkIfHomeReady = () => {
+    const allImagesLoaded = Array.from(homeImages).every(img => img.complete && img.naturalWidth > 0);
+    if (allImagesLoaded) {
+      homePage?.classList.add('home-ready');
+    }
+  };
+
+  homeImages.forEach(img => {
+    img.addEventListener('load', checkIfHomeReady, { once: true });
+    img.addEventListener('error', checkIfHomeReady, { once: true });
+  });
+
+  checkIfHomeReady();
+
+  const trigger = document.querySelector('.recommendations-trigger');
+  const closeButton = document.querySelector('.recommendations-close');
+
+  trigger?.addEventListener('click', toggleRecommendations);
+  closeButton?.addEventListener('click', closeRecommendations);
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!target || target.closest('.recommendations-trigger')) return;
+    if (target.closest('.recommendations-panel')) return;
+    closeRecommendations();
+  });
+});
