@@ -73,13 +73,13 @@
       <section class="games-section">
         <h2>Creations</h2>
         <div class="tab-list" role="tablist" aria-label="Creations categories">
-          <button class="tab-button active" data-tab="games" type="button" role="tab" aria-selected="true">Games</button>
+          <button class="tab-button" data-tab="games" type="button" role="tab" aria-selected="false">Games</button>
           <button class="tab-button" data-tab="music" type="button" role="tab" aria-selected="false">Music</button>
           <button class="tab-button" data-tab="art" type="button" role="tab" aria-selected="false">Art</button>
           <button class="tab-button" data-tab="other" type="button" role="tab" aria-selected="false">Other</button>
         </div>
         <div class="tab-panels">
-          <section id="tab-games" class="tab-panel active" role="tabpanel">
+          <section id="tab-games" class="tab-panel" role="tabpanel">
             <div id="game-root" class="game-list"></div>
           </section>
           <section id="tab-music" class="tab-panel" role="tabpanel">
@@ -183,6 +183,10 @@
         link.classList.toggle('active', link.dataset.page === pageName);
       });
 
+      if (pageName === 'creations' || pageName === 'games') {
+        activateTab(getSavedTab());
+      }
+
       const page = pages[pageName];
       page.el.style.animation = 'none';
       page.el.offsetHeight;
@@ -195,10 +199,6 @@
         mainEl.style.animation = 'none';
         mainEl.offsetHeight;
         mainEl.style.animation = '';
-      }
-
-      if (pageName === 'creations' || pageName === 'games') {
-        activateTab(getSavedTab());
       }
 
       window.scrollTo(0, 0);
