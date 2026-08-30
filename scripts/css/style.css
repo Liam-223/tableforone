@@ -623,6 +623,129 @@ header a:hover {
 }
 
 @media (max-width: 600px) {
+  header {
+    padding: 10px 12px 14px;
+  }
+
+  .header-bar {
+    gap: 8px;
+    padding: 0;
+  }
+
+  .header-brand {
+    position: static;
+    transform: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .header-home-link {
+    gap: 6px;
+  }
+
+  .header-logo {
+    width: 18px;
+    height: 18px;
+  }
+
+  .header-title {
+    font-size: 0.93rem;
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    margin-top: 8px;
+    padding-left: 0;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .theme-toggle {
+    position: static;
+    transform: none;
+    margin: 0;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px 10px;
+    font-size: 1rem;
+  }
+
+  .home-hero {
+    min-height: 160px;
+    padding: 10px 0 0;
+  }
+
+  .home-hero img {
+    max-height: 132px;
+  }
+
+  .home-hero .chair-img {
+    margin-right: -12px;
+  }
+
+  .home-hero .table-img {
+    margin-left: -12px;
+  }
+
+  #page-home main,
+  #page-creations main,
+  #page-shop main,
+  #page-about main {
+    min-height: auto;
+    padding-top: 26px;
+  }
+
+  #page-about .about {
+    width: min(100%, 100%);
+    padding: 0 18px;
+  }
+
+  #page-about .about p {
+    max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .games-section h2 {
+    font-size: 1.7rem;
+  }
+
+  .tab-list {
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .tab-button {
+    padding: 9px 14px;
+    font-size: 0.92rem;
+  }
+
+  .game-banner {
+    max-width: 100%;
+  }
+
+  .music-gallery {
+    gap: 18px;
+  }
+
+  .music-album {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .music-details h3 {
+    font-size: 1.35rem;
+  }
+
+  .track-item {
+    padding: 14px;
+  }
+
   .recommendations-trigger {
     top: auto;
     bottom: 24px;
@@ -654,6 +777,62 @@ header a:hover {
 
   .recommendations-panel.open {
     transform: translateY(0);
+  }
+
+  .support-bubble-wrap {
+    left: 12px;
+    bottom: 12px;
+  }
+
+  .modal-content {
+    width: min(90vw, 420px);
+    padding: 22px 18px 20px;
+  }
+
+  #modal-title {
+    font-size: 1.4rem;
+  }
+
+  #modal-description {
+    font-size: 0.98rem;
+    padding: 12px;
+  }
+
+  .close {
+    top: 12px;
+    right: 14px;
+    font-size: 28px;
+  }
+
+  #page-about .site-footer {
+    margin-bottom: 0;
+    padding: 0 18px 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .main-nav {
+    gap: 8px 10px;
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
+  }
+
+  .home-hero img {
+    max-height: 110px;
+  }
+
+  .home-hero .chair-img {
+    margin-right: -10px;
+  }
+
+  .home-hero .table-img {
+    margin-left: -10px;
+  }
+
+  .music-album {
+    padding: 14px;
   }
 }
 
