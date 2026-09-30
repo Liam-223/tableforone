@@ -74,6 +74,7 @@
         <h2>Creations</h2>
         <div class="tab-list" role="tablist" aria-label="Creations categories">
           <button class="tab-button" data-tab="games" type="button" role="tab" aria-selected="false">Games</button>
+          <button class="tab-button" data-tab="apps" type="button" role="tab" aria-selected="false">Apps</button>
           <button class="tab-button" data-tab="music" type="button" role="tab" aria-selected="false">Music</button>
           <button class="tab-button" data-tab="art" type="button" role="tab" aria-selected="false">Art</button>
           <button class="tab-button" data-tab="other" type="button" role="tab" aria-selected="false">Other</button>
@@ -81,6 +82,9 @@
         <div class="tab-panels">
           <section id="tab-games" class="tab-panel" role="tabpanel">
             <div id="game-root" class="game-list"></div>
+          </section>
+          <section id="tab-apps" class="tab-panel" role="tabpanel">
+            <p>-Coming Soon-</p>
           </section>
           <section id="tab-music" class="tab-panel" role="tabpanel">
             <div id="music-root" class="music-gallery"></div>
@@ -149,7 +153,7 @@
 
     const LAST_PAGE_KEY = 'tablefor.one.lastPage';
     const LAST_TAB_KEY = 'tablefor.one.lastTab';
-    const VALID_TABS = ['games', 'music', 'art', 'other'];
+    const VALID_TABS = ['games', 'apps', 'music', 'art', 'other'];
 
     function getSavedPage() {
       const saved = localStorage.getItem(LAST_PAGE_KEY);
