@@ -5,6 +5,7 @@ const albums = [
   {
     title: 'Viscera',
     description: 'A short experimental album.',
+    type: 'Album',
     folder: 'Viscera',
     cover: 'COVER.jpg',
     tracks: [
@@ -20,7 +21,8 @@ const albums = [
   },
   {
     title: 'A Tales Tale',
-    description: 'A short album.',
+    description: 'A short EP.',
+    type: 'EP',
     folder: 'A Tales Tale',
     cover: 'COVER.jpg',
     tracks: [
@@ -29,10 +31,24 @@ const albums = [
       { title: '#3 The Curious Poet' },
       { title: '#4 The Clockmaker\'s Dream' },
     ]
+  },
+  {
+    title: 'This Side Up',
+    description: 'Another short EP.',
+    type: 'EP',
+    folder: 'This Side Up',
+    cover: 'COVER.webp',
+    tracks: [
+      { title: '#1 This Side Up' },
+      { title: '#2 Someone Has Left the Light On' },
+      { title: '#3 Common Area' },
+      { title: '#4 Local Time' },
+      { title: '#5 Last Known Position' },
+    ]
   }
 ];
 
-const ALBUM_BASE_PATH = ['assets', 'music', 'Album'];
+const MUSIC_BASE_PATH = ['assets', 'music'];
 
 function buildAssetUrl(...segments) {
   return segments.map(segment => encodeURIComponent(segment)).join('/');
@@ -61,14 +77,14 @@ function createAlbumCard(album) {
 
   const cover = document.createElement('img');
   cover.className = 'music-cover';
-  cover.src = buildAssetUrl(...ALBUM_BASE_PATH, album.folder, album.cover);
-  cover.alt = `${album.title} album cover`;
+  cover.src = buildAssetUrl(...MUSIC_BASE_PATH, album.type, album.folder, album.cover);
+  cover.alt = `${album.title} ${album.type.toLowerCase()} cover`;
 
   const details = document.createElement('div');
   details.className = 'music-details';
 
   const title = document.createElement('h3');
-  title.textContent = `${album.title} (Album - UNFINISHED)`;
+  title.textContent = `${album.title} (${album.type} - UNFINISHED)`;
 
   const desc = document.createElement('p');
   desc.textContent = album.description;
