@@ -1,282 +1,119 @@
-<!DOCTYPE html>
 <!-- SCRIPT BY - LIAM -->
-
-<html lang="en">
+ 
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Games, apps, music, and other experiments. A collection of work made by Liam at Table For One.">
+  <meta name="theme-color" content="#111114">
+  <meta property="og:title" content="TableForOne">
+  <meta property="og:description" content="Games, apps, music. One person, plenty of ideas.">
+  <meta property="og:image" content="https://tablefor.one/assets/games/Climbbound/banner.webp">
+  <meta property="og:type" content="website">
   <title>TableForOne</title>
-  <link rel="stylesheet" href="scripts/css/style.css" type="text/css">
-  <link rel="stylesheet" href="scripts/css/support-widget.css" type="text/css">
-  <script src="scripts/js/modal.js" defer></script>
-  <script src="scripts/js/recommendations.js" defer></script>
-  <script src="scripts/js/creations/games.js" defer></script>
-  <script src="scripts/js/creations/albums.js" defer></script>
-  <script src="scripts/js/wiggle.js" defer></script>
-  <script src="scripts/js/theme-toggle.js" defer></script>
-  <script src="scripts/js/support-widget.js" defer></script>
   <link rel="icon" type="image/webp" href="assets/images/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- apply the saved theme before -->
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem('tablefor.one.theme.v2') === 'light' ? 'light' : 'dark'; } catch {}
+  </script>
+  <link rel="stylesheet" href="scripts/css/style.css?v=4">
+  <link rel="stylesheet" href="scripts/css/support-widget.css?v=2">
+  <script src="scripts/js/motion.js?v=3" defer></script>
+  <script src="scripts/js/theme.js?v=3" defer></script>
+  <script src="scripts/js/creations/albums.js?v=4" defer></script>
+  <script src="scripts/js/recommendations.js?v=3" defer></script>
+  <script src="scripts/js/disclosures.js?v=3" defer></script>
+  <script src="scripts/js/navigation.js?v=3" defer></script>
+  <script src="scripts/js/chair.js?v=3" defer></script>
+  <script src="scripts/js/site.js?v=3" defer></script>
+  <script src="scripts/js/support-widget.js?v=2" defer></script>
 </head>
 <body>
-  <header>
-    <div class="header-bar">
-      <div class="header-brand">
-        <a href="#" class="header-home-link nav-link" data-page="home">
-          <img src="assets/images/logo.webp" alt="logo" class="header-logo">
-          <span class="header-title">tablefor.one</span>
-        </a>
-      </div>
-      <nav class="main-nav">
-        <a href="#" class="nav-link" data-page="home">Home</a>
-        <a href="#" class="nav-link" data-page="creations">Creations</a>
-        <a href="#" class="nav-link" data-page="shop">Shop</a>
-        <a href="#" class="nav-link" data-page="about">About</a>
+  <a class="skip-link" href="#work">Skip to work</a>
+  <div class="header-slot">
+    <header class="site-header">
+      <nav aria-label="Main navigation">
+        <a href="#home" class="nav-link active" aria-current="location">Home</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#tools" class="nav-link">Tools</a>
       </nav>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">🌙</button>
-    </div>
-  </header>
-
-  <!-- Home Page -->
-  <div id="page-home" class="page">
-    <main>
-      <div class="home-hero">
-        <img src="assets/images/chair.webp" alt="Chair" class="chair-img" width="280" height="200" loading="eager" decoding="async">
-        <img src="assets/images/table.webp" alt="Table" class="table-img" width="280" height="200" loading="eager" decoding="async">
-      </div>
-    </main>
-
-    <button type="button" class="recommendations-trigger" aria-label="Open recommended tools and sites" aria-controls="recommendations-panel" aria-expanded="false">
-      <span>Tools</span>
-    </button>
-
-    <aside id="recommendations-panel" class="recommendations-panel" aria-hidden="true">
-      <div class="recommendations-panel-header">
-        <h2>Recommended Tools & Sites</h2>
-        <button type="button" class="recommendations-close" aria-label="Close recommended tools and sites">×</button>
-      </div>
-      <ul></ul>
-    </aside>
-
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h3 id="modal-title"></h3>
-        <p contenteditable id="modal-description"></p>
-        <a id="modal-link" target="_blank">Visit Site</a>
-      </div>
-    </div>
+      <button id="theme-toggle" type="button" aria-label="Switch to light mode">Light <span aria-hidden="true">◐</span></button>
+    </header>
   </div>
-
-  <!-- Creations Page -->
-  <div id="page-creations" class="page">
-    <main class="full-opacity">
-      <section class="games-section">
-        <h2>Creations</h2>
-        <div class="tab-list" role="tablist" aria-label="Creations categories">
-          <button class="tab-button" data-tab="games" type="button" role="tab" aria-selected="false">Games</button>
-          <button class="tab-button" data-tab="apps" type="button" role="tab" aria-selected="false">Apps</button>
-          <button class="tab-button" data-tab="music" type="button" role="tab" aria-selected="false">Music</button>
-          <button class="tab-button" data-tab="art" type="button" role="tab" aria-selected="false">Art</button>
-          <button class="tab-button" data-tab="other" type="button" role="tab" aria-selected="false">Other</button>
+  <main>
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title"><span>Table for</span><span>one<span class="title-period">.</span></span></h1>
+      <div class="hero-scene">
+        <div class="scene-art" aria-label="A chair and a table">
+          <button type="button" class="chair-button" aria-label="Rock the chair with sound" title="Rock the chair · plays sound">
+            <img src="assets/images/chair.webp" alt="" class="chair-img" width="800" height="800" decoding="async">
+          </button>
+          <img src="assets/images/table.webp" alt="" class="table-img" width="800" height="800" decoding="async">
         </div>
-        <div class="tab-panels">
-          <section id="tab-games" class="tab-panel" role="tabpanel">
-            <div id="game-root" class="game-list"></div>
-          </section>
-          <section id="tab-apps" class="tab-panel" role="tabpanel">
-            <article class="app-feature">
-              <div class="app-feature-heading">
-                <img
-                  class="app-icon"
-                  src="https://play-lh.googleusercontent.com/53zNlVXYBs1v39FvtP5CKZsQpm6zqRkv_KAW06oqJSOwIDd1l48h4nkKn1euenh-H9uu0IRpzl8wybUfmAMtcg=w240-h240-rw"
-                  alt="Swipe Cleaner app icon"
-                  width="88"
-                  height="88"
-                  decoding="async">
-                <div class="app-feature-copy">
-                  <p class="app-eyebrow">ANDROID APP · FREE · OFFLINE · PRIVATE</p>
-                  <h3>Swipe Cleaner</h3>
-                  <p>Make clearing out your camera roll feel effortless. Photos appear in a random order: swipe left to delete, swipe right to keep.</p>
-                </div>
-                <a
-                  class="app-store-link"
-                  href="https://play.google.com/store/apps/details?id=com.tableforone.swipeclean"
-                  target="_blank"
-                  rel="noopener noreferrer">Get it on Google Play <span aria-hidden="true">↗</span></a>
-              </div>
-              <div class="app-screenshots" aria-label="Swipe Cleaner app screenshots">
-                <img src="https://play-lh.googleusercontent.com/yeVPirBlK89iBwpK2FAZCzAigHoBZj5gCmGGMJqGlSvLqQHLkgb3Li5iN1Agp5VwfL-j0APF-pxlaJTgJlxk4w=w526-h296-rw" alt="Swipe Cleaner photo review screen" loading="lazy" decoding="async">
-                <img src="https://play-lh.googleusercontent.com/1f9diG83jzmqPVLyhbumj84l3aXZAqdiX_MSbuf7c6IdfdDjCtT2_Rwkig2GcXOlbNviBJcMZ9BRbrb8axvT=w526-h296-rw" alt="Swipe Cleaner app settings screen" loading="lazy" decoding="async">
-                <img src="https://play-lh.googleusercontent.com/gH7NgcW4DNJC2-CiXb6wJArofM5hFp-dZh4SAA5zXNgc4eCZF30rykXrJ-4qCvOeIHDSZrFG8Ro281QqTX4PE2w=w526-h296-rw" alt="Swipe Cleaner customization screen" loading="lazy" decoding="async">
-              </div>
-            </article>
-          </section>
-          <section id="tab-music" class="tab-panel" role="tabpanel">
-            <div id="music-root" class="music-gallery"></div>
-          </section>
-          <section id="tab-art" class="tab-panel" role="tabpanel">
-            <p>You can check out my <a href="https://artfight.net/~Liam_223" target="_blank" rel="noopener">ArtFight account</a>.</p>
-          </section>
-          <section id="tab-other" class="tab-panel" role="tabpanel">
-            <p>-Nothing to see here yet!-</p>
-          </section>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <!-- Shop Page -->
-  <div id="page-shop" class="page">
-    <main class="full-opacity">
-      <section class="about">
-        <h2>Shop</h2>
-        <p>Sorry, I don't really have one yet, but for now you can check out my empty <a href="https://tableforone.bigcartel.com" target="_blank" rel="noopener">big cartel shop</a>.</p>
-      </section>
-    </main>
-  </div>
-
-  <!-- About Page -->
-  <div id="page-about" class="page">
-    <main class="full-opacity">
-      <section class="about">
-        <h2>
-          <a href="https://linktr.ee/liam_223" target="_blank" rel="noopener" class="about-link">
-            About Me
+      </div>
+    </section>
+    <section id="work" class="section work-section" aria-labelledby="work-title">
+      <h2 id="work-title" class="section-title">Selected work</h2>
+      <details id="games" class="category-disclosure">
+        <summary><span class="disclosure-title">Games</span><span class="disclosure-plus" aria-hidden="true">+</span></summary>
+        <div class="disclosure-content">
+          <a class="project-row" href="https://liam-223.itch.io/climbbound" target="_blank" rel="noopener noreferrer">
+            <div class="project-copy"><span class="eyebrow tag">Game</span><h3>Climbbound</h3><p>An idle mountain climber.</p></div>
+            <img class="project-image game-image" src="assets/games/Climbbound/banner.webp" alt="Climbbound game artwork" width="1024" height="500" loading="lazy">
+            <span class="project-arrow" aria-hidden="true">↗</span>
           </a>
-        </h2>
-        <p>Hi, I’m Liam. I do all of this solo. My focus is on developing games, 
-        <br>but to be fair, I also enjoy working on literally anything else. 
-        <br>
-        <br>This site is just a place to share a fraction of my work.</p>
-      </section>
-
-      <footer class="site-footer">
-        &copy; 2026 Liam. All rights reserved.
-        <p>Any Questions? E-Mail: <a href="mailto:support@tablefor.one">support@tablefor.one</a></p>
-      </footer>
-    </main>
-  </div>
-
-  <!-- Buy Me a Coffee Widget (portable block) -->
+        </div>
+      </details>
+      <details id="apps" class="category-disclosure">
+        <summary><span class="disclosure-title">Apps</span><span class="disclosure-plus" aria-hidden="true">+</span></summary>
+        <div class="disclosure-content">
+          <a class="project-row" href="https://play.google.com/store/apps/details?id=com.tableforone.swipeclean" target="_blank" rel="noopener noreferrer">
+            <div class="project-copy"><span class="eyebrow tag">Android app</span><h3>Swipe Cleaner</h3><p>Swipe left to delete. Right to keep.</p></div>
+            <img class="project-image app-image" src="https://play-lh.googleusercontent.com/53zNlVXYBs1v39FvtP5CKZsQpm6zqRkv_KAW06oqJSOwIDd1l48h4nkKn1euenh-H9uu0IRpzl8wybUfmAMtcg=w240-h240-rw" alt="Swipe Cleaner app icon" width="140" height="140" loading="lazy">
+            <span class="project-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </details>
+      <details id="music" class="category-disclosure">
+        <summary><span class="disclosure-title">Music</span><span class="disclosure-plus" aria-hidden="true">+</span></summary>
+        <div id="music-root" class="music-gallery"></div>
+      </details>
+      <details id="art" class="category-disclosure">
+        <summary><span class="disclosure-title">Art</span><span class="disclosure-plus" aria-hidden="true">+</span></summary>
+        <div class="disclosure-content">
+          <a class="project-row art-row" href="https://artfight.net/~Liam_223" target="_blank" rel="noopener noreferrer">
+            <div class="project-copy"><span class="eyebrow tag">Drawings &amp; characters</span><h3>Art</h3><p>Find me on ArtFight.</p></div><span class="project-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </details>
+    </section>
+    <details id="about" class="category-disclosure standalone-disclosure">
+      <summary><span class="disclosure-title">About</span><span class="disclosure-plus" aria-hidden="true">+</span></summary>
+      <div class="disclosure-content">
+      <div class="about-body"><p>Hi, I'm Liam. I do all of this solo. Mostly games, sometimes apps, music, and whatever else catches my interest. This is a little collection of my work.</p><a class="text-link" href="https://linktr.ee/liam_223" target="_blank" rel="noopener noreferrer">Find me elsewhere <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </details>
+    <details id="tools" class="category-disclosure standalone-disclosure">
+      <summary><span class="disclosure-title">Tools</span><span class="disclosure-plus" aria-hidden="true">+</span></summary>
+      <div id="tools-root" class="tools-grid"></div>
+    </details>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-links"><a href="mailto:support@tablefor.one">support@tablefor.one</a><a href="https://www.buymeacoffee.com/liam223" target="_blank" rel="noopener noreferrer">Buy me a coffee ↗</a><a href="#home">Back to top ↑</a></div>
+    <div class="footer-bottom"><span>© 2026 Liam</span></div>
+  </footer>
   <div class="support-bubble-wrap" id="supportBubbleWrapper">
     <button type="button" class="support-bubble" id="supportBubbleButton" aria-label="Open donation widget" title="Support me">
-      <img src="assets/buy-me-coffee-icon.webp" alt="Buy me a coffee" class="support-bubble-icon">
+      <img src="assets/buy-me-coffee-icon.webp" alt="" class="support-bubble-icon" width="28" height="28">
     </button>
     <button type="button" class="support-bubble-close" id="supportBubbleClose" aria-label="Dismiss support button">×</button>
   </div>
-
-  <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="liam223" data-description="Support me on Buy me a coffee!" data-message="" data-color="#BD5FFF" data-position="left" data-x_margin="18" data-y_margin="18"></script>
-
-  <script>
-    const pages = {
-      home:      { el: document.getElementById('page-home') },
-      creations: { el: document.getElementById('page-creations') },
-      games:     { el: document.getElementById('page-creations') },
-      shop:      { el: document.getElementById('page-shop') },
-      about:     { el: document.getElementById('page-about') }
-    };
-
-    const LAST_PAGE_KEY = 'tablefor.one.lastPage';
-    const LAST_TAB_KEY = 'tablefor.one.lastTab';
-    const VALID_TABS = ['games', 'apps', 'music', 'art', 'other'];
-
-    function getSavedPage() {
-      const saved = localStorage.getItem(LAST_PAGE_KEY);
-      return pages[saved] ? saved : 'home';
-    }
-
-    function getInitialPage() {
-      const params = new URLSearchParams(location.search);
-      const pageParam = params.get('page');
-      const hashPage = location.hash.slice(1);
-      if (pages[hashPage]) return hashPage;
-      if (pages[pageParam]) return pageParam;
-      return getSavedPage();
-    }
-
-    function getSavedTab() {
-      const saved = localStorage.getItem(LAST_TAB_KEY);
-      return VALID_TABS.includes(saved) ? saved : 'games';
-    }
-
-    function showPage(name) {
-      const pageName = pages[name] ? name : 'home';
-      localStorage.setItem(LAST_PAGE_KEY, pageName);
-
-      const currentActivePage = document.querySelector('.page.active');
-      if (currentActivePage) {
-        currentActivePage.classList.remove('active');
-      }
-
-      document.querySelectorAll('.nav-link[data-page]').forEach(link => {
-        link.classList.toggle('active', link.dataset.page === pageName);
-      });
-
-      if (pageName === 'creations' || pageName === 'games') {
-        activateTab(getSavedTab());
-      }
-
-      const page = pages[pageName];
-      page.el.style.animation = 'none';
-      page.el.offsetHeight;
-      page.el.style.animation = 'pageFade 0.8s ease forwards';
-      page.el.classList.add('active');
-      document.title = 'TableForOne';
-
-      const mainEl = page.el.querySelector('main');
-      if (mainEl) {
-        mainEl.style.animation = 'none';
-        mainEl.offsetHeight;
-        mainEl.style.animation = '';
-      }
-
-      window.scrollTo(0, 0);
-    }
-
-    function activateTab(tabId) {
-      if (!VALID_TABS.includes(tabId)) {
-        tabId = 'games';
-      }
-      localStorage.setItem(LAST_TAB_KEY, tabId);
-
-      document.querySelectorAll('.tab-button').forEach(button => {
-        const isActive = button.dataset.tab === tabId;
-        button.classList.toggle('active', isActive);
-        button.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      });
-      document.querySelectorAll('.tab-panel').forEach(panel => {
-        panel.classList.toggle('active', panel.id === `tab-${tabId}`);
-      });
-    }
-
-    document.querySelectorAll('.nav-link[data-page]').forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        showPage(link.dataset.page);
-        history.replaceState(null, '', location.pathname);
-      });
-    });
-
-    document.addEventListener('click', event => {
-      const button = event.target.closest('.tab-button');
-      if (!button) return;
-      activateTab(button.dataset.tab);
-    });
-
-    function applyPrideTitle() {
-      if (new Date().getMonth() === 5) {
-        document.querySelector('.about-link')?.classList.add('pride-month');
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      applyPrideTitle();
-      const page = getInitialPage();
-      showPage(page);
-      if (location.hash || location.search) {
-        history.replaceState(null, '', location.pathname);
-      }
-    });
-  </script>
+  <script defer data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="liam223" data-description="Support me on Buy me a coffee!" data-message="" data-color="#BD5FFF" data-position="left" data-x_margin="18" data-y_margin="18"></script>
+  <audio id="chair-sound" src="assets/sounds/chair-rock.mp3" preload="auto"></audio>
 </body>
 </html>

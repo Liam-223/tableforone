@@ -1,4 +1,4 @@
-const SUPPORT_BUBBLE_KEY = 'tablefor.one.supportBubbleDismissed';
+const SUPPORT_BUBBLE_KEY = 'tablefor.one.supportBubbleDismissed.v2';
 
 function openSupportWidget() {
   const widgetButton = document.getElementById('bmc-wbtn');
@@ -13,19 +13,16 @@ function openSupportWidget() {
     return;
   }
 
-  window.setTimeout(() => {
-    const retryButton = document.getElementById('bmc-wbtn');
-    if (retryButton && typeof retryButton.click === 'function') {
-      retryButton.click();
-    }
-  }, 100);
+  window.open('https://www.buymeacoffee.com/liam223', '_blank', 'noopener,noreferrer');
 }
 
 function initSupportBubble() {
   const wrapper = document.getElementById('supportBubbleWrapper');
   if (!wrapper) return;
 
-  if (localStorage.getItem(SUPPORT_BUBBLE_KEY) === 'true') {
+  let dismissed = false;
+  try { dismissed = localStorage.getItem(SUPPORT_BUBBLE_KEY) === 'true'; } catch {}
+  if (dismissed) {
     wrapper.style.display = 'none';
     return;
   }
@@ -44,8 +41,12 @@ function initSupportBubble() {
   closeButton.addEventListener('click', event => {
     event.stopPropagation();
     wrapper.style.display = 'none';
-    localStorage.setItem(SUPPORT_BUBBLE_KEY, 'true');
+    try { localStorage.setItem(SUPPORT_BUBBLE_KEY, 'true'); } catch {}
   });
 }
 
-document.addEventListener('DOMContentLoaded', initSupportBubble);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSupportBubble, { once: true });
+} else {
+  initSupportBubble();
+}
