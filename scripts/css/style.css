@@ -313,6 +313,12 @@ h1 > span {
   transition: transform .5s cubic-bezier(.2,.8,.2,1);
 }
 
+.artfight-logo {
+  width: 140px;
+  height: 140px;
+  flex: 0 0 auto;
+}
+
 .app-image {
   width: 65px;
   border-radius: 14px;
@@ -346,12 +352,12 @@ summary::-webkit-details-marker {
 }
 
 .category-disclosure > summary {
-  min-height: 135px;
+  min-height: 95px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
-  padding: 30px 0;
+  gap: 5px;
+  padding: 5px 0;
 }
 
 .disclosure-content {
@@ -460,8 +466,8 @@ details[open]:not([data-expanded="false"]) > summary .disclosure-plus {
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px 50px;
-  padding: 25px 0 60px;
+  gap: 10px 50px;
+  padding: 8px 0 60px;
 }
 
 .tool-item a {
@@ -725,6 +731,11 @@ details[open]:not([data-expanded="false"]) > summary .disclosure-plus {
     width: 100%;
     max-height: 200px;
     object-fit: contain;
+  }
+  .art-row .artfight-logo {
+    justify-self: center;
+    width: 100px;
+    height: 100px;
   }
   .app-image {
     width: 64px;
