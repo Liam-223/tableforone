@@ -8,6 +8,7 @@
       type: 'Album',
       folder: 'Viscera',
       cover: 'COVER.webp',
+      status: 'Mostly finished, no release',
       tracks: [
         { title: '#1 Light Headache' },
         { title: '#2 Glass Iris' },
@@ -25,6 +26,7 @@
       type: 'EP',
       folder: 'A Tales Tale',
       cover: 'COVER.webp',
+      status: 'Likely canceled',
       tracks: [
         { title: '#1 A Bell\'s Ringing' },
         { title: '#2 Day in the Circus' },
@@ -38,6 +40,7 @@
       type: 'EP',
       folder: 'This Side Up',
       cover: 'COVER.webp',
+      status: 'In progress',
       tracks: [
         { title: '#1 This Side Up' },
         { title: '#2 Someone Has Left the Light On' },
@@ -98,7 +101,7 @@
     formatTag.textContent = album.type;
     const progressTag = document.createElement('span');
     progressTag.className = 'tag tag-status';
-    progressTag.textContent = 'In progress';
+    progressTag.textContent = album.status;
     status.append(formatTag, progressTag);
 
     const trackList = document.createElement('details');
