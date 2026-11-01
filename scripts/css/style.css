@@ -29,6 +29,32 @@ html {
   scroll-padding-top: 100px;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .motion-stuff .site-header nav .nav-link,
+  .motion-stuff #theme-toggle,
+  .motion-stuff .chair-button,
+  .motion-stuff .table-img {
+    opacity: 0;
+  }
+
+  .motion-stuff .site-header nav .nav-link,
+  .motion-stuff #theme-toggle {
+    transform: translateY(-10px);
+  }
+
+  .motion-stuff #hero-title > .title-line {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  .motion-stuff .chair-button {
+    transform: translateY(34px) rotate(-8deg) scale(.9);
+  }
+
+  .motion-stuff .table-img {
+    transform: translateY(26px) scale(.92);
+  }
+}
+
 body {
   margin: 0;
   background: var(--bg);

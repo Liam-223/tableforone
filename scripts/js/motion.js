@@ -29,6 +29,7 @@
     animation.addEventListener('finish', () => animation.cancel(), { once: true });
   }
   function initMotion() {
+    document.documentElement.classList.remove('motion-stuff');
     document.querySelectorAll('.site-header nav .nav-link, #theme-toggle').forEach((element, index) => {
       animateElement(element, index * 55, [
         { opacity: 0, transform: 'translateY(-10px)' },
