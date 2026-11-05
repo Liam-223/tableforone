@@ -394,6 +394,66 @@ summary::-webkit-details-marker {
   border: 0;
 }
 
+.app-project {
+  border-top: 1px solid var(--line);
+}
+
+.app-project .project-row {
+  border-top: 0;
+}
+
+.app-project-row {
+  gap: 16px;
+}
+
+.app-store-link {
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+}
+
+.app-store-link:hover h3 {
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+.app-store-arrow:hover {
+  color: var(--accent);
+}
+
+.app-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.app-project-row .app-image {
+  margin-right: 0;
+}
+
+.app-download-link {
+  display: inline-grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--muted);
+  transition: color .25s ease, background-color .25s ease;
+}
+
+.app-download-link svg {
+  width: 19px;
+  height: 19px;
+}
+
+.app-download-link:hover,
+.app-download-link:focus-visible {
+  color: var(--accent);
+  background: var(--surface);
+}
+
 .standalone-disclosure:last-child {
   margin-bottom: 50px;
 }
@@ -766,6 +826,27 @@ details[open]:not([data-expanded="false"]) > summary .disclosure-plus {
   .app-image {
     width: 64px;
     margin: 0;
+  }
+  .app-project-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 16px 18px;
+  }
+  .app-store-link {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .app-actions {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .app-project-row .app-image {
+    grid-column: auto;
+    grid-row: auto;
+    width: 64px;
+  }
+  .app-project-row .project-arrow {
+    grid-column: 2;
+    grid-row: 1;
   }
   .project-arrow {
     grid-column: 2;
