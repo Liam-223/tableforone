@@ -12,12 +12,12 @@
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --bg: #e3e3ea;
+  --bg: #f0f0f2;
   --text: #20212a;
   --muted: #5c5e6b;
-  --line: #c4c5cf;
+  --line: #d0d0d8;
   --accent: #73509b;
-  --surface: #d6d7e0;
+  --surface: #e8e8ed;
 }
 
 * {
