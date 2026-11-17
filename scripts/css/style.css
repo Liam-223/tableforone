@@ -593,6 +593,13 @@ details[open]:not([data-expanded="false"]) > summary .disclosure-plus {
   color: var(--muted);
 }
 
+.footer-links .external-link-icon {
+  width: 10px;
+  height: 10px;
+  margin-left: 3px;
+  vertical-align: -1px;
+}
+
 .footer-bottom {
   margin-top: 45px;
   font-size: 10px;

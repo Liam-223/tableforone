@@ -13,7 +13,7 @@
   function animateElement(element, delay = 0, keyframes, easing = 'cubic-bezier(.16,1,.3,1)') {
     if (!element || motionPreference.matches || !element.animate) return;
     const frames = keyframes || [
-      { opacity: 0, transform: 'translateY(22px)', filter: 'blur(6px)' },
+      { opacity: 0, transform: 'translateY(22px)', filter: 'blur(2px)' },
       { opacity: 1, transform: 'translateY(0)', filter: 'blur(0)' }
     ];
     const finalFrame = { ...frames[frames.length - 1] };
