@@ -20,7 +20,13 @@
     }
     revealSection(location.hash.slice(1));
     document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', () => revealSection(link.hash.slice(1)));
+      link.addEventListener('click', event => {
+        revealSection(link.hash.slice(1));
+        if (link.classList.contains('nav-link')) {
+          event.preventDefault();
+          document.getElementById(link.hash.slice(1))?.scrollIntoView();
+        }
+      });
     });
     addEventListener('hashchange', () => revealSection(location.hash.slice(1)));
     const navigation = [...document.querySelectorAll('.nav-link')];
