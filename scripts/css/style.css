@@ -35,7 +35,7 @@ html {
   .motion-stuff .site-header nav .nav-link,
   .motion-stuff #theme-toggle,
   .motion-stuff .chair-button,
-  .motion-stuff .table-img {
+  .motion-stuff .table-button {
     opacity: 0;
   }
 
@@ -52,7 +52,7 @@ html {
     transform: translateY(34px) rotate(-8deg) scale(.9);
   }
 
-  .motion-stuff .table-img {
+  .motion-stuff .table-button {
     transform: translateY(26px) scale(.92);
   }
 }
@@ -265,8 +265,28 @@ h1 > span {
   opacity: .7;
 }
 
-.table-img {
+.table-button {
+  position: relative;
+  width: 50%;
   margin-left: -12px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  transform-origin: 50% 70%;
+}
+
+.scene-art .table-button img {
+  width: 100%;
+  height: auto;
+}
+
+.table-button:hover {
+  opacity: .85;
+}
+
+.table-button:active {
+  opacity: .7;
 }
 
 :root:not([data-theme="light"]) .scene-art {

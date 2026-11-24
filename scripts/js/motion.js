@@ -46,7 +46,7 @@
       { opacity: 0, transform: 'translateY(34px) rotate(-8deg) scale(.9)' },
       { opacity: 1, transform: 'translateY(0) rotate(0) scale(1)' }
     ]);
-    animateElement(document.querySelector('.table-img'), 560, [
+    animateElement(document.querySelector('.table-button'), 560, [
       { opacity: 0, transform: 'translateY(26px) scale(.92)' },
       { opacity: 1, transform: 'translateY(0) scale(1)' }
     ]);
